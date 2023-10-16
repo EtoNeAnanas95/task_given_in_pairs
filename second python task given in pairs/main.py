@@ -1,6 +1,6 @@
 from all_the_defs import *
 from collections import Counter
-print("Для выхода нажмите 5")
+print("Для выхода нажмите 6")
 while True:
     try:
         menu = int(input("Введите номер задания"))
@@ -14,5 +14,7 @@ while True:
             case 4:
                 question_fourth()
             case 5:
+                question_sixth()
+            case 6:
                 break
     except ValueError: print("Данные введены не верно")
