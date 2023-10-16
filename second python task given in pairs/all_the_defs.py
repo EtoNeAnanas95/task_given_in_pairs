@@ -53,15 +53,17 @@ def question_fourth():
     except ValueError: print("Данные введены не верно")
 
 def question_sixth():
-    path_the_file1 = str(input("Введите путь до первого файла"))
-    # "C:\\Users\\1\\Desktop\\words1.txt"
-    path_the_file2 = str(input("Введите путь до второго файла"))
-    # "C:\\Users\\1\\Desktop\\words2.txt"
-    with open(path_the_file1, "r", encoding="utf-8") as file1, open(path_the_file2, "r", encoding="utf-8") as file2:
-        lines1 = file1.readlines()
-        lines2 = file2.readlines()
-        for i, line in enumerate(lines1):
-            if lines2[i] != line:
-                print(f"Линия {i + 1} отличается:")
-                print(f"в первом файле: {line.strip()}")
-                print(f"в втором файле: {lines2[i].strip()}")
+    try:
+        path_the_file1 = str(input("Введите путь до первого файла"))
+        # "C:\\Users\\1\\Desktop\\words1.txt"
+        path_the_file2 = str(input("Введите путь до второго файла"))
+        # "C:\\Users\\1\\Desktop\\words2.txt"
+        with open(path_the_file1, "r", encoding="utf-8") as file1, open(path_the_file2, "r", encoding="utf-8") as file2:
+            lines1 = file1.readlines()
+            lines2 = file2.readlines()
+            for i, line in enumerate(lines1):
+                if lines2[i] != line:
+                    print(f"Линия {i + 1} отличается:")
+                    print(f"в первом файле: {line.strip()}")
+                    print(f"в втором файле: {lines2[i].strip()}")
+    except ValueError: print("Данные введены не верно")
