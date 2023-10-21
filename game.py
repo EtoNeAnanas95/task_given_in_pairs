@@ -1,10 +1,10 @@
 from actions import *
 import os
-import csv
+from saves import choose_save, save_inventory, save_character, Save, load_inventory
 
-SAVE_FILE_PATH = os.path.join(os.getcwd(), "save.csv")
+SAVE_FILE_PATH = os.path.join(os.getcwd(), "saves.csv")
 
-def character() -> Character:
+def new_character() -> Character:
     inventory = set()
 
     command("cls")
@@ -43,14 +43,29 @@ def new_game(c: Character) -> None:
                     Action_three_alt()
 
 
-def game_from_save() -> None:
-    with open(..., mode="r") as file:
-        reader = csv.reader(file)
-        menu(reader)
-
+def game_from_save(save: Save, character: Character) -> None:
+    print(character)
 
 def game():
-    if os.path.exists("save.csv"):
-        game_from_save()
+    if os.path.exists("saves.csv"):
+        user, save = choose_save()
+        inventory = load_inventory(user.username, [save.surname, save.name, save.middle_name])
+
+        character = Character(
+            name=save.name,
+            surname=save.surname,
+            middle_name=save.middle_name,
+            inventory=inventory,
+            username=user.username,
+            action=save.action
+        )
+
+        game_from_save(save, character)
     else:
-        new_game(character())
+        character = new_character()
+        new_game(character)
+
+    save_character(character)
+    save_inventory(character)
+
+

@@ -10,12 +10,13 @@ class Character:
     name: str
     surname: str
     middle_name: str
-    inventory: set
+    inventory: list[str]
     username: str
+    action: str
 
 
 def add_to_inventory(character: Character, item: str) -> None:
-    character.inventory.update(item)
+    character.inventory.append(item)
 
     show_message(f"Добавлен предмет \"{item}\" в Ваш инвентарь.", clear=False, spacing=True, tooltip=False,
                  wait_for_key=False)
