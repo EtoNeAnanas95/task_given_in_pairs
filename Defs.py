@@ -1,11 +1,10 @@
-from os import system as command
-from msvcrt import kbhit, getch
-from time import sleep
 from dataclasses import dataclass
-import os
+from msvcrt import kbhit, getch
+from os import system as command
+from time import sleep
 
 
-@dataclass(slots=True, frozen=True)
+@dataclass(slots=True, frozen=False)
 class Character:
     name: str
     surname: str
@@ -28,7 +27,6 @@ def choose_option(
         clear: bool = True,
         is_string: bool = True
 ) -> int:
-
     if clear is True:
         command("cls")
 
@@ -117,46 +115,3 @@ def show_message(
     if clear is True:
         sleep(0.3)
         command("cls")
-
-
-def menu() -> None:
-    # while True:
-    #     print("Выберите действие:\n1. Сохранения\n2. Начать Заново\n")
-    #     try:
-    #         _menu = int(input())
-    #         if _menu == 1 or _menu == 2:
-    #             break
-    #     except ValueError:
-    #         print("Данные введены не верно")
-    #     match _menu:
-    #         case 1:
-    #             command("cls")
-    #             line_number = len(reader)
-    #             row_count = 0
-    #             for row in reader:
-    #                 line_number += 1
-    #                 row_count += 1
-    #                 name = row[0]
-    #                 game_moment = row[1]
-    #                 print(f"{line_number}. Имя: {name}, момент игры: {game_moment}")
-    #
-    #             try:
-    #                 while True:
-    #                     row_index = int(input("Выберите сохранение: "))
-    #                     if row_count >= row_index >= 1:
-    #                         for index, row in enumerate(reader):
-    #                             if index == row_index:
-    #                                 print(row)
-    #             except ValueError:
-    #                 print("Данные введены не верно")
-    #         case 2:
-    #             pass
-
-    while True:
-        action = choose_option("Выберите действие: ", ["Загрузить сохранения", "Начать заново"], clear=True)
-
-        match action:
-            case 0:
-                saves = load_saves()
-            case 1:
-                ...

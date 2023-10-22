@@ -1,26 +1,26 @@
 {
-    "inventories": [
-        {
-            "username": "notflask",
-            "name": [
-                "Анальный",
-                "Ананас",
-                "Дебошир"
-            ],
-            "inventory": [
-                "molochko",
-                "molochko",
-                "молочко"
-            ]
-        },
-        {
-            "username": "ugabuga",
-            "name": [
-                "Flask",
-                "Daniil",
-                "Dmigorovich"
-            ],
-            "inventory": []
-        }
-    ]
+  "inventories": [
+    {
+      "username": "notflask",
+      "name": [
+        "Анальный",
+        "Ананас",
+        "Дебошир"
+      ],
+      "inventory": [
+        "molochko",
+        "molochko",
+        "молочко"
+      ]
+    },
+    {
+      "username": "ugabuga",
+      "name": [
+        "Flask",
+        "Daniil",
+        "Dmigorovich"
+      ],
+      "inventory": []
+    }
+  ]
 }
